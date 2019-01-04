@@ -90,4 +90,4 @@ bot.on('error', err => {
 
 
 // Bot login
-bot.login(token);
+bot.login(token).catch(console.log);
