@@ -78,7 +78,7 @@ bot.on('message',msg => {
                     cmd.run(bot,msg,args);
                 }
         } else {
-                msg.channel.send("You dont have acces to this bot commands");
+                msg.channel.send("You dont have access to this bot commands");
         }
 }
     
