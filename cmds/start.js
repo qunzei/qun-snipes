@@ -77,7 +77,7 @@ module.exports.run = async (bot, message, args) => {
 
     collector.on('collect', m => {
 
-        console.log(`Collected ${m.content} | ${m.author.username}`);
+        console.log(`Collected ${m.content} | ${m.author}`);
         
         if (validation(allowedRoles.roles,m.member.roles.array())){
             if (m.content === "!start"){
@@ -88,20 +88,20 @@ module.exports.run = async (bot, message, args) => {
         }
         
         if (game.data.length === 0 && m.content.length === 3){
-            game.addID(m.content.toUpperCase(), m.author.username);
+            game.addID(m.content.toUpperCase(), m.author);
         }else if (m.content.length === 3){
-            if (game.userPresent(m.author.username)){
-                game.deleteUserEntry(m.author.username);
+            if (game.userPresent(m.author)){
+                game.deleteUserEntry(m.author);
                 if (game.idPresent(m.content.toUpperCase())){
-                    game.addUser(m.content.toUpperCase(), m.author.username);
+                    game.addUser(m.content.toUpperCase(), m.author);
                 }else {
-                    game.addID(m.content.toUpperCase(),m.author.username);
+                    game.addID(m.content.toUpperCase(),m.author);
                 }
             } else {
                 if (game.idPresent(m.content.toUpperCase())){
-                    game.addUser(m.content.toUpperCase(), m.author.username);
+                    game.addUser(m.content.toUpperCase(), m.author);
                 }else {
-                    game.addID(m.content.toUpperCase(), m.author.username);
+                    game.addID(m.content.toUpperCase(), m.author);
                 }
             }
         }
