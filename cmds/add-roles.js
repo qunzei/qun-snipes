@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports.run = async (bot, message, args) => {
 
     if (args.legnth === 0){
-        message.channel.send("A roles is needed after the command ex: !add-role @ScrimHost");
+        message.channel.send("A role is needed after the command ex: !add-role @ScrimHost");
     }else if (args.length > 0){
         let roles_raw = fs.readFileSync('./roles.json');
         let roles_array = JSON.parse(roles_raw);
@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         for (var i = 0; i < roles_array.roles.length; i++){
             if (role === roles_array.roles[i]){
                 found = true;
-                message.channel.send(role + " already present in allowed roles");
+                message.channel.send(role + " already present in allowed roles.");
                 return;
             }
         }
